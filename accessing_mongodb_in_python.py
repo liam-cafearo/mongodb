@@ -1,4 +1,6 @@
 import pymongo
+
+# Test a connection
 def mongo_connect():
     try:
         conn = pymongo.MongoClient()
@@ -9,5 +11,7 @@ def mongo_connect():
 
 conn = mongo_connect()
 db = conn['twitter_stream']
-coll = db.my_collection
 print db # Database(MongoClient('localhost', 27017), u'twitter_stream')
+# add some data? (line 15)
+coll = db.my_collection
+print db.collection_names() # []
