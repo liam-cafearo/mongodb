@@ -1,0 +1,13 @@
+import pymongo
+def mongo_connect():
+    try:
+        conn = pymongo.MongoClient()
+        print "Mongo is Connected!"
+        return conn
+    except pymongo.errors.ConnectionFailure, e:
+        print "Could not connect to MongoDB: %s % e"
+
+conn = mongo_connect()
+db = conn['twitter_stream']
+coll = db.my_collection
+print db # Database(MongoClient('localhost', 27017), u'twitter_stream')
