@@ -1,6 +1,4 @@
 import pymongo
-
-# Test a connection
 def mongo_connect():
     try:
         conn = pymongo.MongoClient()
@@ -11,7 +9,9 @@ def mongo_connect():
 
 conn = mongo_connect()
 db = conn['twitter_stream']
-print db # Database(MongoClient('localhost', 27017), u'twitter_stream')
-# add some data? (line 15)
 coll = db.my_collection
-print db.collection_names() # []
+doc = {"name": "Code", "Surname": "Institute", "twitter": "@codersinstitute"}
+coll.insert(doc)
+result = coll.find_one()
+print result 
+# {u'twitter': u'@codersinstitute', u'_id': ObjectID('5629264db1bae125ac446ba5'), u'surname': u'Institute', u'name': u'Code'}
