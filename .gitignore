@@ -1,2 +1,3 @@
 .vscode/
 mgdb_ve/
+credentials.py
